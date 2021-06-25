@@ -1,0 +1,13 @@
+server:
+  port: 8443
+  ssl:
+    enabled: true
+    key-store: ../certs/ibm-soap-server.jks
+    key-store-password: passw0rd
+    trust-store: ../certs/ibm-ca.jks
+    trust-store-password: passw0rd
+    client-auth: need
+
+spring:
+  jmx:
+    enabled: true
