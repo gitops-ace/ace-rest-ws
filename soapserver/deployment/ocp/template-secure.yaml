@@ -38,9 +38,9 @@ objects:
               env:
                 - name: SPRING_PROFILES_ACTIVE
                   value: secure
-                - name: CLIENT_SSL_KEY_STORE
+                - name: SERVER_SSL_KEY_STORE
                   value: /certs/ibm-soap-server.jks
-                - name: CLIENT_SSL_TRUST_STORE
+                - name: SERVER_SSL_TRUST_STORE
                   value: /certs/ibm-ca.jks
               envFrom:
                 - secretRef:
