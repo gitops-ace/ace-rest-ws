@@ -58,7 +58,7 @@ ace-rest-ws
 │   │       ├── Makefile
 │   │       └── san.ext
 │   └── generate.sh
-└── certs <--- directory where certs/keys are generat
+└── certs <--- directory where CA/certs/keys/stores are generated
     ├── ibm-ace-server.crt
     ├── ibm-ace-server.jks
     ├── ibm-ace-server.key
