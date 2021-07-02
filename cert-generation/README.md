@@ -10,14 +10,16 @@ Use wildcard subdomain for both `COMMON_NAME` and `SAN_DNS`. Note that `COMMON_N
 For example:
 
 ```
-COMMON_NAME=*.eu-gb.containers.appdomain.cloud
-SAN_DNS=*.thisiswaytoolongasdomainthatIneedtousethis.eu-gb.containers.appdomain.cloud
+COMMON_NAME=*.appdomain.cloud
+SAN_DNS="DNS:*.sampleingress.eu-gb.containers.appdomain.cloud,DNS:*.sampleingress.eu-gb.containers.appdomain.cloud"
 ```
+
+As above shows, you can put a set of hostnames as the `SAN_DNS`. 
 
 ## Steps
 
 ```
-client-deployment
+ace-rest-ws
 └── cert-generation <- includes scirpt to generate keys/certs/stores
     ├── README.md <--- this file
     ├── docker
@@ -43,6 +45,32 @@ or
 bash generate.sh
 ```
 
-The script will run a docker container to create the necessary keys, certifcates and stores, in `certs` directory at root of the installation folder. Note that `PREFIX` from 
-[env.sh](../env.sh) will be used in prefixing the name of the files.
+The script will run a docker container to create the necessary keys, certifcates and stores, in `certs` directory at root of the installation folder:
 
+
+```
+ace-rest-ws
+├── cert-generation
+│   ├── README.md 
+│   ├── docker
+│   │   ├── Dockerfile
+│   │   └── src
+│   │       ├── Makefile
+│   │       └── san.ext
+│   └── generate.sh
+└── certs <--- directory where certs/keys are generat
+    ├── ibm-ace-server.crt
+    ├── ibm-ace-server.jks
+    ├── ibm-ace-server.key
+    ├── ibm-ca.crt
+    ├── ibm-ca.jks
+    ├── ibm-ca.key
+    ├── ibm-ca.srl
+    ├── ibm-client.crt
+    ├── ibm-client.jks
+    ├── ibm-client.key
+    └── ibm-soap-server.jks
+...
+```
+
+ Note that `PREFIX` from [env.sh](../env.sh) will be used in prefixing the name of the files.

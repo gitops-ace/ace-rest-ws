@@ -1,1 +1,1 @@
-subjectAltName = DNS:$ENV::SAN_DNS
+subjectAltName = $ENV::SAN_DNS
